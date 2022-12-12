@@ -3,15 +3,19 @@ import { useCallback, useState } from "react";
 import Grid from '@mui/material/Unstable_Grid2';
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import { auth, db, firebaseConfig } from "../main";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
+    const navigate = useNavigate();
+
     const handleLogin = useCallback(async () => {
         const user = await signInWithEmailAndPassword(auth, email, password);
         if(user) {
             console.log(user);
+            navigate('/');
         }
     }, [email, password]);
 

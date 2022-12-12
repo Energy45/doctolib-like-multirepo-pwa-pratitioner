@@ -13,11 +13,12 @@ import { initializeApp } from '@firebase/app';
 import { getAuth } from '@firebase/auth';
 import { getFirestore } from '@firebase/firestore';
 import { CalendarAppointment } from './components/CalendarAppointment';
+import { AppointmentsTaken } from './components/AppointmentsTaken';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <CalendarAppointment/>
+    element: <AppointmentsTaken/>
   },
   {
     path: '/register',
